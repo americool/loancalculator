@@ -10,7 +10,7 @@
     <th>Rem Balance</th>
     </tr>
     <tr ng-repeat="month in result.monthlyResults">
-      <td> {{month.month | number : 2}} </td>
+      <td> {{month.month}} </td>
       <td> ${{month.interest | number : 2}} </td>
       <td> ${{month.principal | number : 2}} </td>
       <td> ${{month.remBalance | number : 2}} </td>
