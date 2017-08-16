@@ -1,6 +1,6 @@
 <div>
   <p> This is a test </p>
-  <form ng-submit="calculate()">
+  <form name="form" ng-submit="calculate()">
     <hr/>
     <div ng-repeat="form in forms">
       Balance: $<input type="number" step=".01" min= "0" ng-model="form.balance"/> Dollars
@@ -11,7 +11,7 @@
       <br/>
       <hr/>
     </div>
-    <input type="submit" value="Calculate!" />
+    <input type="submit" value="Calculate!" ng-disabled="form.$invalid" />
   </form>
   <button ng-click="addAnother()"> Add Another Loan? </button>
   <div ng-show="showResults">

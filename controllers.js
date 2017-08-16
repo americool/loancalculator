@@ -4,9 +4,9 @@ loanCalc.controller('mainController', ['$scope', function($scope) {
 
   $scope.forms = [
     {
-      balance: "",
-      term: "",
-      rate: ""
+      balance: "-",
+      term: "-",
+      rate: "-"
     }
   ]
   $scope.results = [];
@@ -20,16 +20,15 @@ loanCalc.controller('mainController', ['$scope', function($scope) {
     createMonthlyResults();
     calculatePool();
     $scope.showResults = true;
-    console.log($scope.results);
-    console.log($scope.poolResult);
+
   }
 
   $scope.addAnother = function() {
     $scope.forms.push(
       {
-        balance: "",
-        term: "",
-        rate: ""
+        balance: "-",
+        term: "-",
+        rate: "-"
       }
     )
   }
@@ -53,7 +52,7 @@ loanCalc.controller('mainController', ['$scope', function($scope) {
       (loan.balance) * (loan.rate/1200) /
       (1-(1+loan.rate/1200)**(loan.months *-1))
       let previousRemaingBalance = loan.balance;
-      console.log(totalMonthlyPayment);
+
 
 
       for(x=0; x<loan.months; x++){
@@ -77,7 +76,6 @@ loanCalc.controller('mainController', ['$scope', function($scope) {
     $scope.results.forEach(function(loan){
       loan.monthlyResults.forEach(function(month){
         if ($scope.poolResult[month.month - 1]) {
-          console.log("how about here?")
           $scope.poolResult[month.month - 1] = {
             interest: $scope.poolResult[month.month - 1].interest + month.interest,
             principal: $scope.poolResult[month.month - 1].principal + month.principal,
@@ -85,7 +83,6 @@ loanCalc.controller('mainController', ['$scope', function($scope) {
           }
         }
         else {
-          console.log("ever get to here?")
           $scope.poolResult.push({
             interest: month.interest,
             principal: month.principal,
