@@ -1,0 +1,22 @@
+<div>
+  <p> This is a test </p>
+  <form ng-submit="calculate()">
+    <hr/>
+    <div ng-repeat="form in forms">
+      Balance: $<input type="number" step=".01" min= "0" ng-model="form.balance"/> Dollars
+      <br/>
+      Term: <input type="number" step="1" min="1" ng-model="form.term" /> Months
+      <br/>
+      Rate: %<input type="number" step=".01" min="0.01" max="100" ng-model="form.rate"/>
+      <br/>
+      <hr/>
+    </div>
+    <input type="submit" value="Calculate!" />
+  </form>
+  <button ng-click="addAnother()"> Add Another Loan? </button>
+  <div ng-show="showResults">
+    <pool-results></pool-results>
+    <results></results>
+
+  </div>
+</div>

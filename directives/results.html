@@ -1,0 +1,20 @@
+<h3> Results: </h3>
+
+<div ng-repeat="result in results">
+  <strong>Loan {{ results.indexOf(result) +1 }}</strong>
+  <table>
+    <tr>
+    <th>Month</th>
+    <th>Interest</th>
+    <th>Principal</th>
+    <th>Rem Balance</th>
+    </tr>
+    <tr ng-repeat="month in result.monthlyResults">
+      <td> {{month.month | number : 2}} </td>
+      <td> ${{month.interest | number : 2}} </td>
+      <td> ${{month.principal | number : 2}} </td>
+      <td> ${{month.remBalance | number : 2}} </td>
+    </tr>
+  </table>
+  <hr/>
+</div>

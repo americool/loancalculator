@@ -1,0 +1,16 @@
+<h3> Pool Results </h3>
+
+<table>
+  <tr>
+  <th>Month</th>
+  <th>Interest</th>
+  <th>Principal</th>
+  <th>Rem Balance</th>
+  </tr>
+  <tr ng-repeat="month in poolResult">
+    <td> {{poolResult.indexOf(month) + 1}} </td>
+    <td> ${{month.interest | number : 2}} </td>
+    <td> ${{month.principal | number : 2}} </td>
+    <td> ${{month.remBalance | number : 2}} </td>
+  </tr>
+</table>
